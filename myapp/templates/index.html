@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Todos</h1>
+
+    {% for todo in todos %}
+    <li>{{ todo }}</li>
+    {% endfor %}
+
+    <!-- it means that the form gets submitted then its make the post request, request to the server  -->
+    <form method="POST">
+        <!-- form is secure -->
+        {{ template_form.hidden_tag()}}
+        <p>
+            {{ template_form.todo.label()}}
+            {{ template_form.todo()}}
+        </p>
+        <p>
+            {{ template_form.submit(class="btn btn-primary") }}
+            <!-- or plain HTML -->
+            <!-- <button type="submit">Add</button> -->
+        </p>
+    </form>
+</body>
+
+</html>
